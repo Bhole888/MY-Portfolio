@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FarmFresh Trio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@900&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #fff8e1;
+      --text-color: #4e342e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 2s, color 2s;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #263238;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: #ffa726;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffab91;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: background-color 2s, color 2s;
+    }
+
+    .tab {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .slider-container {
+      max-width: 100%;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .slider {
+      display: flex;
+      width: 300%;
+      animation: slide 15s infinite;
+    }
+
+    .slide {
+      flex: 1 0 100%;
+      min-height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide1 { background-image: url('https://source.unsplash.com/900x400/?fish,farm'); }
+    .slide2 { background-image: url('https://source.unsplash.com/900x400/?duck,pond'); }
+    .slide3 { background-image: url('https://source.unsplash.com/900x400/?eggs,farm'); }
+
+    .animated-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .icon {
+      width: 80px;
+      height: 80px;
+    }
+
+    .fish {
+      animation: swim 4s infinite ease-in-out;
+    }
+
+    .duck {
+      animation: waddle 3s infinite ease-in-out;
+    }
+
+    .egg {
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes swim {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(20px) scaleX(-1); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes waddle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .whatsapp-btn {
+      margin-top: 1rem;
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      background: #263238;
+      color: white;
+      padding: 2rem;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .theme-switcher {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4db6ac;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .tab {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FarmFresh Trio</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home">
+  <div class="tab">
+    <h2>Welcome to FarmFresh Trio</h2>
+    <p>Bringing fresh fish, ducks, and eggs from our farm directly to your home.</p>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+      </div>
+    </div>
+    <div class="animated-icons">
+      <img src="https://cdn-icons-png.flaticon.com/128/616/616408.png" class="icon fish" alt="Fish">
+      <img src="https://cdn-icons-png.flaticon.com/128/1998/1998610.png" class="icon duck" alt="Duck">
+      <img src="https://cdn-icons-png.flaticon.com/128/616/616408.png" class="icon egg" alt="Egg">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="tab">
+    <h2>About Us</h2>
+    <p>We are Rocky, Ankit,  – passionate farmers using modern tech to reach your kitchen with quality.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="tab">
+    <h2>Our Services</h2>
+    <p>• Fresh farm delivery within 24 hours</p>
+    <p>• Organic feed for healthier products</p>
+    <p>• Expert consultation for fish & duck farming</p>
+  </div>
+</section>
+
+<section id="products">
+  <div class="tab">
+    <h2>Our Products</h2>
+    <p>🐟 Rohu Fish – ₹160/kg</p>
+    <a href="https://wa.me/918340735440?text=I'm%20interested%20in%20Rohu%20Fish" class="whatsapp-btn" target="_blank">Order Fish</a>
+
+    <p style="margin-top:2rem;">🦆 White Pekin Duck – ₹850</p>
+    <a href="https://wa.me/918340735440?text=I'm%20interested%20in%20White%20Pekin%20Duck" class="whatsapp-btn" target="_blank">Order Duck</a>
+
+    <p style="margin-top:2rem;">🥚 Duck Feed (20kg) – ₹950</p>
+    <a href="https://wa.me/918340735440?text=I'm%20interested%20in%20Duck%20Feed" class="whatsapp-btn" target="_blank">Order Feed</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="tab">
+    <h2>Contact Us</h2>
+    <p>Questions? Message us anytime.</p>
+    <a href="https://wa.me/918340735440?text=Hi%20FarmFresh%20Trio%2C%20I%20have%20a%20query." class="whatsapp-btn" target="_blank">Chat on WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 FarmFresh Trio | Built with ❤️ by Rakesh, Ankit & Shubham
+</footer>
+
+<button class="theme-switcher" onclick="startThemeSwitch()">Start Color Theme</button>
+
+<script>
+  const themes = [
+    ['#fff8e1', '#4e342e'],
+    ['#e1f5fe', '#01579b'],
+    ['#fce4ec', '#880e4f'],
+    ['#e8f5e9', '#1b5e20'],
+    ['#ede7f6', '#4527a0']
+  ];
+
+  let themeIndex = 0;
+  let interval;
+
+  function startThemeSwitch() {
+    clearInterval(interval);
+    interval = setInterval(() => {
+      const theme = themes[themeIndex];
+      document.documentElement.style.setProperty('--bg-color', theme[0]);
+      document.documentElement.style.setProperty('--text-color', theme[1]);
+      themeIndex = (themeIndex + 1) % themes.length;
+    }, 5000);
+  }
+</script>
+
+</body>
+</html>
